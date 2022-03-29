@@ -1,0 +1,1 @@
+gcc main.c ./*.c -o a.out -lpthread

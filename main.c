@@ -2,8 +2,9 @@
  * @file main.c
  * @author slayter teal (slayter.teal@gmail.com)
  * @brief main runner for the Final Project
- * @copyright Copyright (c) 2022
- * compile: gcc main.c *.c -o a.out -lpthread
+ * @Group E
+ * @date 4/11/22
+ * compile: gcc *.c -o a.out -lpthread
  */
 #include <stdio.h>
 #include <stdlib.h>

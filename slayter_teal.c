@@ -1,3 +1,10 @@
+/**
+ * @file slayter_teal.c
+ * @author slayter teal (slayter.teal@gmail.com)
+ * @brief performMedicalCheckup code
+ * @Group E
+ * @date 4/11/22
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <semaphore.h>
 #include <pthread.h>
+#include <time.h>
 #include "MedicalClinic.h"
 
 // statistical trackers
@@ -96,7 +97,7 @@ int main(int argc, char* argv[]){
         if(pthread_create(&patientThreadPool[i], NULL, &enterWaitingRoom, (void *)&patientNumber[i]) != 0){
             printf("Failure to create thread...\n");
         }
-        sleep(((float)MAXIMUM_ARRIVAL_TIME)/1000.0); // wait MAXIMUM_ARRIVAL_TIME(ms) before the next patient arrives.
+        usleep(((float)MAXIMUM_ARRIVAL_TIME)*1000.0); // wait MAXIMUM_ARRIVAL_TIME(ms) before the next patient arrives.
     }
     // the main thread will wait untill all patients have left.
     for(int i = 0; i < NUMBER_OF_PATIENTS; i++){

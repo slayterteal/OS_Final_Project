@@ -20,6 +20,8 @@
  * @param number 
  */
 void preformMedicalCheckup(int *number){
+    endTime = clock();
+    avgProfTime += (double)(endTime - startTime);
     usleep(((float)(PER_PATIENT_CHECKUP_TIME))*1000.0);
     acceptPayment(number);
 }

@@ -44,19 +44,18 @@ void *waitForPatients(void *args){
 }
 
 void getMedicalCheckup(int *num){
-    //Print out patient num, and its thread ID
-    printf("Patient %d (Thread ID: %ld): Receiving Checkup.\n", *num, pthread_self());
-    //Wait X seconds, where X is the calculated time the checkup will take
-    usleep(((float)PER_PATIENT_CHECKUP_TIME)*1000.0);
-    //After checkup is done, call the makePayment method
-    makePayment(num);
     patientEnd = clock();
-    endTime = clock();
+    // Print out patient num, and its thread ID
+    printf("Patient %d (Thread ID: %ld): Receiving Checkup.\n", *num, pthread_self());
+    // Wait X seconds, where X is the calculated time the checkup will take
+    usleep(((float)PER_PATIENT_CHECKUP_TIME)*1000.0);
+    // After checkup is done, call the makePayment method
+    makePayment(num);
+    
+    
 
     //end time
     //printf("%f",(double)(endTime));
     avgPatientWait += (double)(patientEnd - patientStart);
-    avgProfTime += (double)(endTime - startTime);
-
     ++goodCheckups;
 }

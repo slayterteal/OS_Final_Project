@@ -59,8 +59,8 @@ int main(int argc, char* argv[]){
     // TODO: Set from args ======================================
     NUMBER_OF_MEDICAL_PROFESSIONALS = atoi(argv[1]); 
     NUMBER_OF_PATIENTS = atoi(argv[2]);
-    NUMBER_OF_SOFAS = atoi(argv[3]); 
-    WAITING_ROOM_CAPACITY = atoi(argv[4]);
+    WAITING_ROOM_CAPACITY = atoi(argv[3]);
+    NUMBER_OF_SOFAS = atoi(argv[4]); 
     MAXIMUM_ARRIVAL_TIME = atoi(argv[5]);
     PER_PATIENT_CHECKUP_TIME = atoi(argv[6]);
     // ==================================================================
@@ -104,7 +104,7 @@ int main(int argc, char* argv[]){
         pthread_join(patientThreadPool[i], NULL);
     }
 
-    printf("\nStatistical Analysis goes here...\n");
+    printf("\nStatistical Analysis\n");
 
     //analysis
     printf("-------------------------------------------------------\n");

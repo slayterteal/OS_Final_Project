@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <semaphore.h>
 #include <pthread.h>
+#include <time.h>
 #include "MedicalClinic.h"
 
 /**
@@ -19,6 +20,6 @@
  * @param number 
  */
 void preformMedicalCheckup(int *number){
-    sleep(((float)PER_PATIENT_CHECKUP_TIME)/1000.0);
+    usleep(((float)(PER_PATIENT_CHECKUP_TIME))*1000.0);
     acceptPayment(number);
 }

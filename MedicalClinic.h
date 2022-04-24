@@ -11,6 +11,8 @@
 
 
 #include <semaphore.h>
+#include <time.h>
+
 
 // Define the global variables/user input variables
 extern int NUMBER_OF_MEDICAL_PROFESSIONALS; 
@@ -19,6 +21,16 @@ extern int WAITING_ROOM_CAPACITY;
 extern int NUMBER_OF_SOFAS; 
 extern int MAXIMUM_ARRIVAL_TIME; // ms
 extern int PER_PATIENT_CHECKUP_TIME; // ms
+
+//statistical summary variables
+int goodCheckups;
+double avgProfTime;
+int leaveCount;
+double avgPatientWait;
+clock_t startTime;
+clock_t patientStart;
+clock_t endTime;
+clock_t patientEnd;
 
 // define some semaphores/mutexes
 extern sem_t NUMBER_OF_PATIENTS_TO_ARRIVE;

@@ -54,9 +54,11 @@ void leaveClinic(int* number, int hadCheckup){
     //prints patient number and if leaving with/without checkup
     if(hadCheckup == 0){
         printf("Patient %d (Thread ID: %ld): Leaving Clinic without receiving Checkup.\n", *number, pthread_self());
+        ++leaveCount;
     }
     else {
         printf("Patient %d (Thread ID: %ld): Leaving Clinic after receiving Checkup.\n", *number, pthread_self());
+        
     }
     
 }

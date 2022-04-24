@@ -3,7 +3,9 @@
 #include <unistd.h>
 #include <semaphore.h>
 #include <pthread.h>
+#include <time.h>
 #include "MedicalClinic.h"
+
 
 /**
  * Group E
@@ -22,16 +24,23 @@ void *waitForPatients(void *args){
     int num = *((int*) args);
     //Print out medical profesional num, and its thread ID
     printf("Medical Professional %d (Thread ID: %ld): Waiting for Patient\n", num, pthread_self());
+
+    //start time
+    startTime = clock();
     
     //Infinite loop to continuosly checks for waiting patients.
     while(1){
         //semaphore to wait until a patient is waiting
         sem_wait(&WAITING_PATIENTS);
         //Once a patient arrives, call the performMedicalCheckup method
+        
         preformMedicalCheckup(&num);
         //Once a patient has been sent to get a medical checkup, release the semaphore
         sem_post(&AVAILABLE_MEDICAL_PROFESSIONALS);
+        
     }  
+    
+    
 }
 
 void getMedicalCheckup(int *num){
@@ -41,4 +50,13 @@ void getMedicalCheckup(int *num){
     sleep(((float)PER_PATIENT_CHECKUP_TIME)/1000.0);
     //After checkup is done, call the makePayment method
     makePayment(num);
+    patientEnd = clock();
+    endTime = clock();
+
+    //end time
+    printf("%f",(double)(endTime));
+    avgPatientWait += (double)(patientEnd - patientStart);
+    avgProfTime += (double)(endTime - startTime);
+
+    ++goodCheckups;
 }

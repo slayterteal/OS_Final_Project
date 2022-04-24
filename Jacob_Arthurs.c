@@ -54,7 +54,7 @@ void getMedicalCheckup(int *num){
     endTime = clock();
 
     //end time
-    printf("%f",(double)(endTime));
+    //printf("%f",(double)(endTime));
     avgPatientWait += (double)(patientEnd - patientStart);
     avgProfTime += (double)(endTime - startTime);
 

@@ -8,6 +8,7 @@ date 4/11/22
 #include <stdlib.h>
 #include <unistd.h>
 #include <semaphore.h>
+#include <time.h>
 #include <pthread.h>
 #include "MedicalClinic.h"
 
@@ -61,6 +62,9 @@ void *enterWaitingRoom(void *args){
     int number = *((int*)args);
     printf("Patient %d (Thread ID: %ld): Arrived at the Clinic\n", number, pthread_self());
     
+    //start patient wait time
+    patientStart = clock();
+
     // get current number of open places in the waiting room.
     int remaining_waiting_room_capacity = 0;
     sem_getvalue(&REMAINING_WAITING_ROOM_CAPACITY, &remaining_waiting_room_capacity);

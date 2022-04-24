@@ -105,6 +105,15 @@ int main(int argc, char* argv[]){
 
     printf("\nStatistical Analysis goes here...\n");
 
+    //analysis
+    printf("-------------------------------------------------------\n");
+    printf("Number of successful Checkups: %d\n", goodCheckups);
+    avgProfTime = avgProfTime / (NUMBER_OF_MEDICAL_PROFESSIONALS * 1000);
+    printf("Average waiting time for Medical Professionals: %0.1f ms\n", avgProfTime);
+    printf("Number of Patients that left: %d\n", leaveCount);
+    avgPatientWait = avgPatientWait / (NUMBER_OF_MEDICAL_PROFESSIONALS* 1000);
+    printf("Average wait time for patients: %0.1f\n", avgPatientWait);
+
     // free memory/destroy mutexes or semaphores
     sem_destroy(&REMAINING_WAITING_ROOM_CAPACITY);
     sem_destroy(&NUMBER_OF_AVAILABLE_SOFAS);
